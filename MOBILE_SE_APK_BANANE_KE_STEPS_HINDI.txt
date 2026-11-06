@@ -1,0 +1,42 @@
+FF MAX ESP Training Simulator — केवल मोबाइल से APK बनाना
+
+आपके लिए Cloud Build workflow जोड़ा गया है। इससे Android फोन से GitHub पर source डालकर GitHub के server पर APK बनवा सकते हैं। APK सीधे फोन में डाउनलोड होगा। इसके लिए GitHub account और internet जरूरी हैं।
+
+A. ZIP extract करें
+1. इस ZIP को फोन में डाउनलोड करें।
+2. Files / File Manager में ZIP पर टैप करके Extract करें।
+3. अंदर FF_MAX_ESP_Training_Simulator folder मिलेगा।
+
+B. GitHub पर नया repository बनाएं
+1. Chrome में https://github.com खोलें और sign in करें (नया account हो तो बनाएं)।
+2. + > New repository चुनें।
+3. Repository name: FF-MAX-ESP-Training-Simulator
+4. Public या Private चुनें; फिर Create repository दबाएं।
+
+C. Files GitHub पर डालें
+GitHub repository में Add file > Create new file चुनकर नीचे दिए गए paths एक-एक करके बनाएं। हर file का content फोन के File Manager / text editor से खोलकर copy-paste करें। हर file के बाद Commit changes करें।
+- build.gradle.kts
+- settings.gradle.kts
+- gradle.properties
+- app/build.gradle.kts
+- app/src/main/AndroidManifest.xml
+- app/src/main/res/values/styles.xml
+- app/src/main/java/com/sunil/ffmaxsim/MainActivity.kt
+- .github/workflows/android-apk.yml
+
+ध्यान: फ़ाइल बनाते समय ऊपर File name में पूरा path लिखें, जैसे app/src/main/AndroidManifest.xml। पहले parent folder बनाने की जरूरत नहीं है।
+
+D. APK build और download
+1. Repository में Actions tab खोलें।
+2. "Build Android APK" workflow चुनें।
+3. Run workflow दबाएं और फिर हरे tick तक इंतजार करें।
+4. सफल run खोलें। नीचे Artifacts में FF-MAX-ESP-Training-Simulator-APK डाउनलोड करें।
+5. डाउनलोड ZIP को Extract करें। उसमें app-debug.apk होगा। उस पर टैप करके Install करें।
+
+अगर GitHub workflow स्वतः शुरू नहीं हुआ, Actions tab से Run workflow चलाएं।
+
+महत्वपूर्ण:
+- इस build के लिए फोन पर Android Studio/SDK इंस्टॉल नहीं करना पड़ता।
+- GitHub पर source डालना एक बार का काम है; अगली बार code update पर workflow फिर APK बना देगा।
+- APK debug build है, Play Store release signing नहीं।
+- यह पूरी तरह offline practice simulator है। इसमें दिखने वाले bots/radar/ESP markers simulator के अंदर के नकली targets हैं; Free Fire MAX से कोई connection या interaction नहीं।
